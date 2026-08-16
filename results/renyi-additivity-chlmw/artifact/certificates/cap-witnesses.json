@@ -1,0 +1,61 @@
+{
+  "cap": "2/3",
+  "rounding_denominator": 100000000,
+  "schema_version": "q4-output-cap-candidate-v1",
+  "witnesses": [
+    {
+      "entries": [
+        {"column": 0, "imaginary": "0", "real": "2201361/20000000", "row": 0},
+        {"column": 11, "imaginary": "0", "real": "12197313/100000000", "row": 0},
+        {"column": 1, "imaginary": "0", "real": "1316681/20000000", "row": 1},
+        {"column": 3, "imaginary": "2480477/50000000", "real": "-2087959/50000000", "row": 1},
+        {"column": 2, "imaginary": "0", "real": "8512503/100000000", "row": 2},
+        {"column": 4, "imaginary": "-1334551/25000000", "real": "-146167/2500000", "row": 2},
+        {"column": 6, "imaginary": "-1354623/50000000", "real": "-1970487/25000000", "row": 2},
+        {"column": 3, "imaginary": "0", "real": "3453781/50000000", "row": 3},
+        {"column": 4, "imaginary": "0", "real": "7853191/100000000", "row": 4},
+        {"column": 6, "imaginary": "-158933/5000000", "real": "7335683/100000000", "row": 4},
+        {"column": 5, "imaginary": "0", "real": "2460403/25000000", "row": 5},
+        {"column": 7, "imaginary": "10523519/100000000", "real": "37923/3125000", "row": 5},
+        {"column": 9, "imaginary": "10301521/100000000", "real": "690453/20000000", "row": 5},
+        {"column": 6, "imaginary": "0", "real": "433763/5000000", "row": 6},
+        {"column": 7, "imaginary": "0", "real": "11969297/100000000", "row": 7},
+        {"column": 9, "imaginary": "-1243319/50000000", "real": "5875051/50000000", "row": 7},
+        {"column": 8, "imaginary": "0", "real": "5807439/100000000", "row": 8},
+        {"column": 10, "imaginary": "-2369367/50000000", "real": "2895627/100000000", "row": 8},
+        {"column": 9, "imaginary": "0", "real": "2515377/20000000", "row": 9},
+        {"column": 10, "imaginary": "0", "real": "5817187/100000000", "row": 10},
+        {"column": 11, "imaginary": "0", "real": "7050551/50000000", "row": 11}
+      ],
+      "name": "A",
+      "subspace": "R"
+    },
+    {
+      "entries": [
+        {"column": 0, "imaginary": "0", "real": "7050551/50000000", "row": 0},
+        {"column": 11, "imaginary": "0", "real": "-12197313/100000000", "row": 0},
+        {"column": 1, "imaginary": "0", "real": "5817187/100000000", "row": 1},
+        {"column": 3, "imaginary": "2369367/50000000", "real": "2895627/100000000", "row": 1},
+        {"column": 2, "imaginary": "0", "real": "2515377/20000000", "row": 2},
+        {"column": 4, "imaginary": "1243319/50000000", "real": "5875051/50000000", "row": 2},
+        {"column": 6, "imaginary": "-10301521/100000000", "real": "690453/20000000", "row": 2},
+        {"column": 3, "imaginary": "0", "real": "5807439/100000000", "row": 3},
+        {"column": 4, "imaginary": "0", "real": "11969297/100000000", "row": 4},
+        {"column": 6, "imaginary": "-10523519/100000000", "real": "37923/3125000", "row": 4},
+        {"column": 5, "imaginary": "0", "real": "433763/5000000", "row": 5},
+        {"column": 7, "imaginary": "158933/5000000", "real": "7335683/100000000", "row": 5},
+        {"column": 9, "imaginary": "1354623/50000000", "real": "-1970487/25000000", "row": 5},
+        {"column": 6, "imaginary": "0", "real": "2460403/25000000", "row": 6},
+        {"column": 7, "imaginary": "0", "real": "7853191/100000000", "row": 7},
+        {"column": 9, "imaginary": "1334551/25000000", "real": "-146167/2500000", "row": 7},
+        {"column": 8, "imaginary": "0", "real": "3453781/50000000", "row": 8},
+        {"column": 10, "imaginary": "-2480477/50000000", "real": "-2087959/50000000", "row": 8},
+        {"column": 9, "imaginary": "0", "real": "8512503/100000000", "row": 9},
+        {"column": 10, "imaginary": "0", "real": "1316681/20000000", "row": 10},
+        {"column": 11, "imaginary": "0", "real": "2201361/20000000", "row": 11}
+      ],
+      "name": "B",
+      "subspace": "Sbar"
+    }
+  ]
+}

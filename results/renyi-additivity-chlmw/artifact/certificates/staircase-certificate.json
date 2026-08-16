@@ -1,0 +1,17 @@
+{
+  "endpoints": [
+    "0",
+    "1/100",
+    "1/50",
+    "3/100",
+    "7/200",
+    "1/25",
+    "21/500",
+    "11/250",
+    "9/200",
+    "1/22"
+  ],
+  "root_bits": 192,
+  "schema_version": "q4-renyi-positive-p-staircase-certificate-v1",
+  "target_sha256": "7af5ada595b8f2efc8e727c849d82e4151e819e1cdaad7540fa783e46f2568eb"
+}

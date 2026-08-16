@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: >-
+  If you use material from this repository, please cite the paper and
+  archived artifact listed under the relevant entry in README.md.
+title: Certified Science
+authors:
+  - family-names: Krohn-Grimberghe
+    given-names: Artus
+    affiliation: Percivio Ltd.
+repository-code: https://github.com/percivio-ltd/certified-science
+license: MIT

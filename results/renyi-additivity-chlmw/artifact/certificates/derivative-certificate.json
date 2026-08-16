@@ -1,0 +1,7 @@
+{
+  "derivative_cells": 1,
+  "log_terms": 120,
+  "root_bits": 192,
+  "schema_version": "q4-renyi-positive-p-interval-certificate-v3",
+  "target_sha256": "7af5ada595b8f2efc8e727c849d82e4151e819e1cdaad7540fa783e46f2568eb"
+}
