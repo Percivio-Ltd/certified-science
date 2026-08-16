@@ -26,7 +26,9 @@ of big-integer comparisons checked by a pure-integer verifier.
 
 - Directory: [`results/depolarizing-threshold-n45/`](results/depolarizing-threshold-n45/)
 - How to verify: [`REPRODUCTION-NOTE.md`](results/depolarizing-threshold-n45/REPRODUCTION-NOTE.md)
-- Artifact archive: [doi:10.5281/zenodo.21962925](https://doi.org/10.5281/zenodo.21962925)
+- Artifact archive: [doi:10.5281/zenodo.21968912](https://doi.org/10.5281/zenodo.21968912)
+  (version 1.1; version 1.0 at [doi:10.5281/zenodo.21962925](https://doi.org/10.5281/zenodo.21962925)
+  is the original priority deposit)
 - Preprint: arXiv, to be added at announcement.
 
 ### Exact certification of a positive-order Rényi additivity violation for an explicit channel pair
