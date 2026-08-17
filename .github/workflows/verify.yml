@@ -78,3 +78,39 @@ jobs:
             certificates/${{ matrix.endpoint }}.json \
             ${{ matrix.payload }} ${{ matrix.p }} | tee verify.out
           grep -q "^ACCEPT" verify.out
+
+  marsquake-paper0:
+    name: "MarsQuake Paper 0: manifest + canonical rebuild controls"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: results/marsquake-paper0-reproducibility
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manifest (byte identity)
+        run: sha256sum -c MANIFEST.txt
+      - name: Install ObsPy
+        run: pip install "obspy>=1.4,<2" "numpy<2.1"
+      - name: Canonical rebuild + geometry adverse control
+        run: |
+          cd artifact
+          export MPLCONFIGDIR=$PWD/.mplcache
+          python3 - <<'PY'
+          from obspy.taup import taup_create, TauPyModel
+          nd = "models/M0/paper0_ref_1800.00-5.00-5.80-600.00-0.300.nd"
+          taup_create.build_taup_model(filename=nd, output_folder="models/M0")
+          m = TauPyModel(model=nd.replace(".nd", ".npz"))
+          def pkikp(deg):
+              arr = [a for a in m.get_travel_times(source_depth_in_km=33,
+                     distance_in_degree=deg, phase_list=["ttall"])
+                     if a.phase.name == "PKiKP"]
+              assert arr, f"no PKiKP at {deg} deg"
+              return arr[0].time
+          t29 = pkikp(29.0)
+          print("PKiKP @29deg:", t29)
+          assert abs(t29 - 808.136) < 0.01, t29
+          t39 = pkikp(39.0)
+          print("PKiKP @39deg:", t39, "shift:", abs(t39 - t29))
+          assert abs(t39 - t29) > 5.0, "adverse control failed to move"
+          PY

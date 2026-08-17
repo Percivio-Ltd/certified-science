@@ -3,13 +3,14 @@
 [![verify](https://github.com/percivio-ltd/certified-science/actions/workflows/verify.yml/badge.svg)](https://github.com/percivio-ltd/certified-science/actions/workflows/verify.yml)
 
 Results in physics and astronomy, shipped with the machinery to check
-them. Every entry in this repository consists of small exact
-certificates, at least one dependency-free verification program, and a
-hash manifest, so that the central claims of the accompanying paper can
-be re-verified on a laptop without trusting the authors, their code, or
-their arithmetic. The versioned archive of record for each entry is a
-Zenodo deposit; the copies here are byte-identical to the deposited
-files (check any entry's `MANIFEST.txt` with `shasum -a 256 -c`).
+them. Every entry in this repository consists of exact certificates or
+re-runnable registered controls, at least one documented verification
+path, and a hash manifest, so that the central claims of the
+accompanying paper can be re-verified on a laptop without trusting the
+authors, their code, or their arithmetic. The versioned archive of
+record for each entry is a Zenodo deposit; the copies here are
+byte-identical to the deposited files (check any entry's `MANIFEST.txt`
+with `shasum -a 256 -c`).
 
 Maintained by [Percivio Ltd.](https://www.percivio.com/) Contact:
 Artus Krohn-Grimberghe, <artus@percivio.com>.
@@ -32,6 +33,31 @@ of big-integer comparisons checked by a pure-integer verifier.
   (version 1.1; version 1.0 at [doi:10.5281/zenodo.21962925](https://doi.org/10.5281/zenodo.21962925)
   is the original priority deposit)
 - Preprint: arXiv, to be added at announcement.
+
+### A reproducibility benchmark of the reported Martian inner-core detection
+
+The reported seismic detection of a ~613 km solid inner core in Mars
+(Bi et al., Nature 645:67–72, 2025) rests on source-array stacking of 23
+marsquakes at a single station. Regenerating the declared pipeline from
+versioned public inputs reproduces the stack feature itself but not the
+published PKiKP stack coordinates: the observed feature is model-free
+and immobile under interior-model exchange, while the phase label
+attached to it moves — across a registered eight-model TauP sensitivity
+annex, predicted PKiKP-family arrivals at the registered geometry shift
+by −35.4 to +38.8 s, and the as-released community interior-model file
+is degenerate at this geometry. The entry ships the revision-draft
+manuscript and supplement, a model-editing runbook, the six
+self-authored interior-model files, and hash manifests; the registered
+sign and monotonicity controls re-run on a laptop with ObsPy (the
+canonical build takes seconds; MSL-bearing builds take hours by a
+measured, documented mechanism).
+
+- Directory: [`results/marsquake-paper0-reproducibility/`](results/marsquake-paper0-reproducibility/)
+- How to verify: [`REPRODUCTION-NOTE.md`](results/marsquake-paper0-reproducibility/REPRODUCTION-NOTE.md)
+- Capsule archive: [doi:10.5281/zenodo.21762439](https://doi.org/10.5281/zenodo.21762439)
+- Preprint (version of record, V1): [doi:10.31223/X59R49](https://doi.org/10.31223/X59R49)
+  (EarthArXiv; under journal review — this entry carries the stamped
+  revision draft, not the version of record)
 
 ### Exact certification of a positive-order Rényi additivity violation for an explicit channel pair
 
