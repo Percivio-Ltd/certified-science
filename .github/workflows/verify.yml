@@ -1,0 +1,80 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  renyi-additivity-chlmw:
+    name: "Renyi additivity: manifest + both programs"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: results/renyi-additivity-chlmw/artifact
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manifest (byte identity with the Zenodo deposit)
+        run: sha256sum -c MANIFEST.txt
+      - name: Primitive-witness program (all checks)
+        run: |
+          python3 programs/verify_q4_primitives.py \
+            --floor-candidate certificates/floor-witnesses.json \
+            --joint-claim     certificates/joint-spectrum.json \
+            --cap-candidate   certificates/cap-witnesses.json \
+            --report          report-primitives.json \
+            --control         none
+      - name: Primitive-witness program (corruption controls must fail)
+        run: |
+          for c in floor-decomposition cap-decomposition joint-matrix; do
+            if python3 programs/verify_q4_primitives.py \
+              --floor-candidate certificates/floor-witnesses.json \
+              --joint-claim     certificates/joint-spectrum.json \
+              --cap-candidate   certificates/cap-witnesses.json \
+              --report          report-control-$c.json \
+              --control         $c; then
+              echo "control $c unexpectedly passed"; exit 1
+            fi
+          done
+      - name: Exact number-field program
+        run: |
+          mkdir -p bundle/progress/artifacts
+          cp certificates/floor-witnesses.json bundle/progress/artifacts/renyi-p001-candidate.json
+          cp certificates/joint-spectrum.json  bundle/progress/artifacts/joint_spectrum_exact.json
+          python3 programs/verify_q4_p001.py bundle report-exact.json | tee p001.out
+          grep -q "verdict: CONFIRMED" p001.out
+
+  depolarizing-threshold-n45:
+    name: "Depolarizing endpoint ${{ matrix.endpoint }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - endpoint: A-p16239-250000
+            payload: 1df2e00c06b2614cd04a5bfc7bede040da2d3fc1dd49e7138e201c101aab266f
+            p: 16239/250000
+          - endpoint: A-p203-3125
+            payload: 1df2e00c06b2614cd04a5bfc7bede040da2d3fc1dd49e7138e201c101aab266f
+            p: 203/3125
+          - endpoint: R-p16229-250000
+            payload: 9a94606d28cb787ebffdc0c46415623ae9e83d27df5de655f4114e86ca4cc1c6
+            p: 16229/250000
+          - endpoint: R-p4057-62500
+            payload: 9a94606d28cb787ebffdc0c46415623ae9e83d27df5de655f4114e86ca4cc1c6
+            p: 4057/62500
+    defaults:
+      run:
+        working-directory: results/depolarizing-threshold-n45/artifact
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manifest (byte identity with the Zenodo deposit)
+        run: sha256sum -c MANIFEST.txt
+      - name: Exact integer verifier
+        run: |
+          python3 verifier/verify.py \
+            certificates/${{ matrix.endpoint }}.json \
+            ${{ matrix.payload }} ${{ matrix.p }} | tee verify.out
+          grep -q "^ACCEPT" verify.out

@@ -1,5 +1,7 @@
 # Certified Science
 
+[![verify](https://github.com/percivio-ltd/certified-science/actions/workflows/verify.yml/badge.svg)](https://github.com/percivio-ltd/certified-science/actions/workflows/verify.yml)
+
 Results in physics and astronomy, shipped with the machinery to check
 them. Every entry in this repository consists of small exact
 certificates, at least one dependency-free verification program, and a
