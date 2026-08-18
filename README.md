@@ -32,7 +32,7 @@ of big-integer comparisons checked by a pure-integer verifier.
 - Artifact archive: [doi:10.5281/zenodo.21968912](https://doi.org/10.5281/zenodo.21968912)
   (version 1.1; version 1.0 at [doi:10.5281/zenodo.21962925](https://doi.org/10.5281/zenodo.21962925)
   is the original priority deposit)
-- Preprint: arXiv, to be added at announcement.
+- Preprint: [arXiv:2608.15870](https://arxiv.org/abs/2608.15870)
 
 ### A reproducibility benchmark of the reported Martian inner-core detection
 
